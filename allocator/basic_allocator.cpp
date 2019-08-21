@@ -4,7 +4,6 @@
 #include <memory>
 #include <new>
 
-namespace test {
 template<class T>
 inline T* _allocate(size_t size, T*) {
     std::set_new_handler(nullptr);
@@ -74,7 +73,6 @@ public:
 
 };
 
-}
 
 int main()
 {

@@ -6,7 +6,4 @@
 ## basic\_allocator.cpp:
 基本内存分配器的实现
 
-## test.cpp
-测试使用
-
 
