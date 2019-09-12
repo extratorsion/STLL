@@ -12,13 +12,13 @@ namespace
 {
 
 template <class Tp>
-inline Tp* _allocate(size_t size, const Tp*) {
+inline Tp* __allocate(size_t size, const Tp*) {
     Tp* result = static_cast<Tp*>(::operator new(size * sizeof(Tp)));
     return result;
 }
 
 template <class Tp>
-inline void _deallocate(Tp* mem) {
+inline void __deallocate(Tp* mem) {
     operator delete(static_cast<void*>(mem));
 }
 
@@ -38,11 +38,11 @@ public:
 public:
     static pointer allocate(size_type size,
                      const void* ptr=static_cast<const void*>(nullptr)) {
-        return _allocate(size, static_cast<const_pointer>(ptr));
+        return __allocate(size, static_cast<const_pointer>(ptr));
     }
 
     static void deallocate(pointer ptr, size_type) {
-        _deallocate(ptr);
+        __deallocate(ptr);
     }
 
     static pointer address(const_reference elem) {

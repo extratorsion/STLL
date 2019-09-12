@@ -1,5 +1,5 @@
-#ifndef CONSTpRUCTp_HPP
-#define CONSTpRUCTp_HPP
+#ifndef CONSTRUCT_HPP
+#define CONSTRUCT_HPP
 
 #include "type_traits.hpp"
 #include "iterator.hpp"
@@ -11,14 +11,14 @@ namespace
 
 // If has_trivial_destructor, then do nothing when destring object.
 template <typename ForwardIterator>
-inline void _destroy_aux(const ForwardIterator& /*first*/,
+inline void __destroy_aux(const ForwardIterator& /*first*/,
                          const ForwardIterator& /*last*/,
                          true_type)
 {}
 
 
 template <typename ForwardIterator>
-inline void _destroy_aux(const ForwardIterator& first,
+inline void __destroy_aux(const ForwardIterator& first,
                          const ForwardIterator& last,
                          false_type)
 {
@@ -27,12 +27,12 @@ inline void _destroy_aux(const ForwardIterator& first,
 }
 
 template <typename ForwardIterator, typename Tp>
-inline void _destroy(const ForwardIterator& first,
+inline void __destroy(const ForwardIterator& first,
                      const ForwardIterator& last,
                      Tp*)
 {
     typedef typename type_traits<Tp>::has_trivial_destructor trivial_destructor;
-    _destroy_aux(first, last, trivial_destructor());
+    __destroy_aux(first, last, trivial_destructor());
 }
 
 }
@@ -60,7 +60,7 @@ inline void destroy(Tp* ptr) {
 
 template <typename ForwardIterator>
 inline void destroy(const ForwardIterator& first, const ForwardIterator& last) {
-    _destroy(first, last, value_type(first));
+    __destroy(first, last, value_type(first));
 }
 
 __STLL_NAMESPACE_FINISH__

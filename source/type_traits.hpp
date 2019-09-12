@@ -170,16 +170,6 @@ struct type_identity {
     typedef Tp       raw_type;
 };
 
-//template <class Tp>
-//struct type_identity<Tp*> {
-//    typedef Tp       raw_type;
-//};
-
-//template <class Tp>
-//struct type_identity<const Tp*> {
-//    typedef Tp       raw_type;
-//};
-
 template <class Tp>
 struct type_identity<Tp&> {
     typedef Tp       raw_type;

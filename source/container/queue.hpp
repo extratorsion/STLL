@@ -62,6 +62,10 @@ public:
         sequence.pop_front();
     }
 
+    void push(const value_type& value) {
+        sequence.push_back(value);
+    }
+
     template <typename... Args>
     void emplace(const Args... args) {
         sequence.emplace_back(args...);

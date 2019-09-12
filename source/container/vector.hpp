@@ -4,8 +4,8 @@
 #include <initializer_list>
 #include <stdexcept>
 
-#include "allocator.hpp"
-#include "algorithm.hpp"
+#include "allocator/allocator.hpp"
+#include "algorithm/algorithm.hpp"
 #include "iterator.hpp"
 #include "memory.hpp"
 
@@ -104,12 +104,15 @@ public:
         }
         clear();
         copy(vec.begin(), vec.end(), start);
+        finish = start + vec.size();
     }
 
     self& operator=(self&& vec) {
         start = vec.start;
         finish = vec.finish;
         end_of_storage = vec.end_of_storage;
+
+        vec.start = vec.finish = vec.end_of_storage = nullptr;
     }
 
     ~vector() {

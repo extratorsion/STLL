@@ -12,7 +12,7 @@ namespace
 
 template <typename RandomAcessIterator, typename Distance,
           typename Tp, typename Compare>
-void _push_heap(RandomAcessIterator first, Distance top_index,
+void __push_heap(RandomAcessIterator first, Distance top_index,
                 Distance hole_index, Tp value, const Compare& comp) {
     if (hole_index == top_index) return;
     Distance parent_index = (hole_index - 1) / 2;
@@ -32,7 +32,7 @@ inline void push_heap(RandomAcessIterator first, RandomAcessIterator last,
     typedef typename iterator_traits<RandomAcessIterator>::difference_type
             Distance;
 
-    _push_heap(first, Distance(0), Distance(last-first-1), *(last-1), comp);
+    __push_heap(first, Distance(0), Distance(last-first-1), *(last-1), comp);
 }
 
 
@@ -42,7 +42,7 @@ inline void push_heap(RandomAcessIterator first, RandomAcessIterator last) {
             Distance;
     typedef typename iterator_traits<RandomAcessIterator>::value_type
             Tp;
-    _push_heap(first, Distance(0), Distance(last-first-1),
+    __push_heap(first, Distance(0), Distance(last-first-1),
                *(last-1), less<Tp>());
 }
 

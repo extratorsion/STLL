@@ -203,7 +203,7 @@ public:
         pointer cur;
         map_pointer node;
 
-        friend typename deque;
+        friend class deque;
     };
 
 protected:
@@ -449,7 +449,7 @@ protected:
     }
 
     void deallocate_node(pointer node) {
-        alloc::eallocate(node, buffer_size());
+        alloc::deallocate(node, buffer_size());
     }
 
     void create_map(size_type size) {
