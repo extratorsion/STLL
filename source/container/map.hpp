@@ -33,12 +33,12 @@ public:
 protected:
     typedef rb_tree<key_type, value_type, identity<value_type>,
                     value_compare, Alloc>     rep_type;
-    typedef map<Key, Tp, Compare, Alloc>    self;
-    rep_type            tree;
+    typedef map<Key, Tp, Compare, Alloc>      self;
+    rep_type                                  tree;
 
 public:
     typedef typename rep_type::const_iterator  const_iterator;
-    typedef typename rep_type::iterator  iterator;
+    typedef typename rep_type::iterator        iterator;
     typedef typename rep_type::size_type       size_type;
     typedef typename rep_type::difference_type difference_type;
     typedef typename rep_type::const_pointer   const_pointer;

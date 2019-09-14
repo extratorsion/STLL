@@ -134,15 +134,15 @@ struct identity : public unary_function<Tp, Tp> {
 };
 
 template <typename Pair>
-struct selct1st : public unary_function<Pair, typename Pair::first_type> {
-    const typename Pair::first_type& operator()(const Pair& x) {
+struct select1st : public unary_function<Pair, typename Pair::first_type> {
+    const typename Pair::first_type& operator()(const Pair& x) const {
         return x.first;
     }
 };
 
 template <typename Pair>
 struct select2nd : public unary_function<Pair, typename Pair::second_type> {
-    const typename Pair::second_type& operator()(const Pair& x) {
+    const typename Pair::second_type& operator()(const Pair& x) const {
         return x.first;
     }
 };
