@@ -10,8 +10,6 @@ struct hash_type_length {
     typedef Tp              alter_type;
 };
 
-/* For user defined types,
- * the hash method is to return object's address.*/
 template <typename Tp>
 struct hash {
     size_t operator()(const Tp& obj) {
