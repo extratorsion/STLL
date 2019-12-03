@@ -191,7 +191,7 @@ protected:
 public:
     typedef output_iterator_tag     iterator_category;
     typedef void                    value_type;
-    typedef void                    diffrence_type;
+    typedef void                    difference_type;
     typedef void                    pointer;
     typedef void                    reference;
 
@@ -226,7 +226,7 @@ protected:
 public:
     typedef output_iterator_tag     iterator_category;
     typedef void                    value_type;
-    typedef void                    diffrence_type;
+    typedef void                    difference_type;
     typedef void                    pointer;
     typedef void                    reference;
 
