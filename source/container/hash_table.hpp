@@ -241,7 +241,7 @@ public:
         ,equals(equal_to<key_type>())
         ,get_key(identity<key_type>())
         ,element_count(0) {
-        intialize_buckets(__primes_list[0]);
+        initialize_buckets(__primes_list[0]);
     }
 
     hash_table(size_type bucket_size, const HashFun& hash_fun,
@@ -250,7 +250,7 @@ public:
         ,equals(eql)
         ,get_key(ExtractKey())
         ,element_count(0) {
-        intialize_buckets(bucket_size);
+        initialize_buckets(bucket_size);
     }
 
     hash_table(const self& another)
@@ -546,7 +546,7 @@ protected:
         return __primes_list[__num_primes - 1];
     }
 
-    void intialize_buckets(size_type size) {
+    void initialize_buckets(size_type size) {
         buckets.insert(buckets.begin(), size, nullptr);
     }
 

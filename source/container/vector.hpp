@@ -38,6 +38,7 @@ public:
     vector(size_type size) {
         start = alloc::allocate(size);
         finish = end_of_storage = start + size;
+        uninitialized_fill(start, finish, T());
     }
 
     vector(size_type size, const value_type& value) {

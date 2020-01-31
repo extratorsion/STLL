@@ -158,7 +158,7 @@ protected:
 public:
     typedef output_iterator_tag     iterator_category;
     typedef void                    value_type;
-    typedef void                    diffrence_type;
+    typedef void                    difference_type;
     typedef void                    pointer;
     typedef void                    reference;
 
@@ -358,7 +358,7 @@ public:
     struct enumerate_iterator {
         using value_type = pair<size_t,
                     typename iterator_traits<original_iterator>::value_type>;
-        using iteraotr_catefory = input_iterator_tag;
+        using iterator_category = input_iterator_tag;
         using reference         = value_type&;
         using pointer           = value_type*;
         using difference_type   = ptrdiff_t;

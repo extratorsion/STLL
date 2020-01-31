@@ -11,7 +11,7 @@ __STLL_NAMESPACE_START__
 
 namespace
 {
-enum {DEEUE_BUFFER_SIZE = 256};
+enum {DEQUE_BUFFER_SIZE = 256};
 }
 
 template<typename Tp, typename Alloc=allocator<Tp>>
@@ -186,7 +186,7 @@ public:
         }
 
         size_type buffer_size() const {
-            return DEEUE_BUFFER_SIZE;
+            return DEQUE_BUFFER_SIZE;
         }
 
         void set_node(map_pointer _node) {
@@ -398,7 +398,7 @@ public:
     }
 
     size_type buffer_size() const {
-        return DEEUE_BUFFER_SIZE;
+        return DEQUE_BUFFER_SIZE;
     }
 
     iterator begin() {

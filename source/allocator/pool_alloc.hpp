@@ -73,7 +73,7 @@ void (*malloc_alloc_template<inst>::malloc_alloc_template_oom_handler)()
 
 enum {ALIGN = 8};
 enum {MAX_BYTpES = 128};
-enum {NFREELIISTpS = MAX_BYTpES / ALIGN};
+enum {NFREELISTPS = MAX_BYTpES / ALIGN};
 
 union obj {
     union obj* next;
@@ -90,7 +90,7 @@ private:
 private:
 
 private:
-    static union obj* free_list[NFREELIISTpS];
+    static union obj* free_list[NFREELISTPS];
     static void* free_segment_start;
     static void* free_segment_finish;
     static size_t heap_size;
@@ -178,7 +178,7 @@ private:
 
                 free_segment_finish = nullptr;
 
-#ifdef SGI_OOM_IMPLEMENTp
+#ifdef SGI_OOM_IMPLEMENT
 
                 free_segment_start = malloc_alloc_template<0>::allocate(
                     bytes_total_alloc
@@ -250,14 +250,14 @@ template <int inst>
 size_t alloc_template<inst>::heap_size = 0;
 
 template <int inst>
-union obj* alloc_template<inst>::free_list[NFREELIISTpS] = {
+union obj* alloc_template<inst>::free_list[NFREELISTPS] = {
     nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
     nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
     nullptr, nullptr, nullptr, nullptr
 };
 
 using alloc = alloc_template<0>;
-using maloc_alloc = malloc_alloc_template<0>;
+using malloc_alloc = malloc_alloc_template<0>;
 
 
 template <typename Tp, typename Alloc=alloc>
