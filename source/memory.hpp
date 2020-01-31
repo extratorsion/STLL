@@ -3,10 +3,8 @@
 
 
 #include <cstring>
-#include <utility>
-#include <cstring>
-
 #include "construct.hpp"
+#include "move.hpp"
 
 __STLL_NAMESPACE_START__
 
@@ -65,7 +63,7 @@ inline ForwardIterator __uninitialized_fill_n_aux(ForwardIterator first,
 }
 
 /*
- Copie the range [first, last) into [result, result + (last-first)).
+ Copy the range [first, last) into [result, result + (last-first)).
 */
 template <typename InputIterator, typename ForwardIterator>
 ForwardIterator uninitialized_copy(InputIterator first,
@@ -127,8 +125,11 @@ BidrectionalIterator2 move(BidrectionalIterator1 first,
                            BidrectionalIterator1 last,
                            BidrectionalIterator2 result) {
     while (first != last) {
-        *result = std::move(first);
+        *result = move(*first);
+        ++first;
+        ++result;
     }
+    return result;
 }
 
 template <typename BidrectionalIterator1, typename BidrectionalIterator2>
@@ -136,7 +137,7 @@ BidrectionalIterator2 move_backward(BidrectionalIterator1 first,
                                     BidrectionalIterator1 last,
                                     BidrectionalIterator2 result) {
    while (last != first) {
-        *(--result) = std::move(*(--last));
+        *(--result) = move(*(--last));
     }
     return result;
 }

@@ -6,8 +6,8 @@
 __STLL_NAMESPACE_START__
 /*
  * true_type:   POD like, the object of true_type should have all data in stack.
- *              It's default constructor, defaut destrutor... is trivial.
- * false_type:  Type which have data in heap, constructor or destrutor function
+ *              It's default constructor, defaut destructor... is trivial.
+ * false_type:  Type which have data in heap, constructor or destructor function
  *              must be invoked when object was created or destroyed.
  */
 struct true_type{};
@@ -34,7 +34,7 @@ struct type_traits<Type*> {
     typedef true_type      is_POD_type;
 };
 
-/* For all buitin types, it's ture_type by default. */
+/* For all builtin types, it's true_type by default. */
 template <>
 struct type_traits<char> {
     typedef true_type      has_trivial_default_constructor;
@@ -179,6 +179,17 @@ template <class Tp>
 struct type_identity<const Tp&> {
     typedef Tp       raw_type;
 };
+
+
+
+template <class Tp> 
+struct remove_reference { using type = Tp; };
+
+template <class Tp>
+struct remove_reference<Tp&> { using type = Tp; };
+
+template <class Tp>
+struct remove_reference<Tp&&> { using type = Tp; };
 
 
 __STLL_NAMESPACE_FINISH__

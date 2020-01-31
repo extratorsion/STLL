@@ -1,5 +1,5 @@
-#ifndef STATCK_HPP
-#define STATCK_HPP
+#ifndef STACK_HPP
+#define STACK_HPP
 
 #include "deque.hpp"
 #include <stack>
@@ -14,8 +14,8 @@ public:
     typedef const Tp*        const_pointer;
     typedef Tp&              reference;
     typedef const Tp&        const_reference;
-    typedef size_t          size_type;
-    typedef ptrdiff_t       difference_type;
+    typedef size_t           size_type;
+    typedef ptrdiff_t        difference_type;
 
     typedef stack<Tp, Sequence> self;
 
@@ -79,4 +79,4 @@ public:
 
 __STLL_NAMESPACE_FINISH__
 
-#endif // STATCK_HPP
+#endif // STACK_HPP

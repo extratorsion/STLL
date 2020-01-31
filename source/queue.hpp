@@ -2,7 +2,6 @@
 #define QUEUE_HPP
 
 #include "deque.hpp"
-#include <queue>
 
 __STLL_NAMESPACE_START__
 

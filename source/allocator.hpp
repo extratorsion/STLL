@@ -1,9 +1,9 @@
-#ifndef ALLOCATpOR_HPP
-#define ALLOCATpOR_HPP
+#ifndef ALLOCATOR_HPP
+#define ALLOCATOR_HPP
 #include <cstddef>
 
 #include "base.hpp"
-#include "utils.hpp"
+#include "utility.hpp"
 
 __STLL_NAMESPACE_START__
 

@@ -3,6 +3,7 @@
 
 #include "type_traits.hpp"
 #include "iterator.hpp"
+#include "move.hpp"
 
 __STLL_NAMESPACE_START__
 
@@ -49,7 +50,7 @@ inline void construct(Tp1* ptr, const Tp2& value) {
 // Construct object which ptr pointed with args.
 template <typename Tp, typename ...Args>
 inline void construct(Tp* ptr, Args&&... args) {
-    new(ptr)Tp(args...);
+    new(ptr)Tp(forward<Args>(args)...);
 }
 
 // Destroy object which ptr pointed.

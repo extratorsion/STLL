@@ -33,5 +33,4 @@
 #define __ANONYMOUS_NAMESPACE_FINISH }
 
 
-
 #endif // BASE_HPP

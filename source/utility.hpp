@@ -99,7 +99,6 @@ bool any(InputIterator first, InputIterator last, const Pred& pred) {
 }
 
 
-
 __STLL_NAMESPACE_FINISH__
 
 #endif // UTILS_HPP
